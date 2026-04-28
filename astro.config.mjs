@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://growthgrid.miningengineering.workers.dev',
+  site: 'https://growths.dev',
   integrations: [react(), tailwind(), sitemap()],
   output: 'static',
 });
