@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Privacy Policy | GrowthGrid" description="Our commitment to your privacy and data security.">
+  <Header />
+  <main class="py-20 bg-white dark:bg-slate-950 transition-colors">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h1 class="text-4xl font-black text-slate-900 dark:text-white mb-8 uppercase tracking-tight">Privacy Policy</h1>
+      
+      <div class="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
+        <p class="mb-4 text-sm font-bold">Last Updated: April 28, 2026</p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">1. Information We Collect</h2>
+        <p class="mb-4">
+          GrowthGrid does not require users to create an account or provide personal information to use our calculators. We collect standard log data such as IP addresses, browser types, and pages visited to improve our service and site performance.
+        </p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">2. Cookies and Advertisements</h2>
+        <p class="mb-4">
+          We use Google AdSense to serve advertisements. Google, as a third-party vendor, uses cookies to serve ads based on your visit to this site and other sites on the Internet. Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" class="text-emerald-600">Google Ad Settings</a>.
+        </p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">3. Data Security</h2>
+        <p class="mb-4">
+          We implement a variety of security measures to maintain the safety of your information. Our site is delivered over secure HTTPS to ensure that any data entered into our calculators remains private during transit.
+        </p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">4. Third-Party Links</h2>
+        <p class="mb-4">
+          Occasionally, we may include links to third-party products or services in our wealth guides. These third-party sites have separate and independent privacy policies.
+        </p>
+
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">5. Contact Information</h2>
+        <p class="mb-4">
+          If there are any questions regarding this privacy policy, you may contact us at support@growths.dev.
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Contact Us | GrowthGrid" description="Get in touch with the team at GrowthGrid.">
+  <Header />
+  <main class="py-20 bg-white dark:bg-slate-950 transition-colors">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 uppercase tracking-tight">Contact Us</h1>
+      
+      <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border-2 border-slate-100 dark:border-slate-800 shadow-xl">
+        <p class="text-slate-600 dark:text-slate-400 mb-8 font-medium">
+          Have a question about our tools or interested in a partnership? We'd love to hear from you.
+        </p>
+
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-sm font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-1">Email Support</h3>
+            <p class="text-xl font-bold text-slate-900 dark:text-white">support@growths.dev</p>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-1">Response Time</h3>
+            <p class="text-slate-600 dark:text-slate-400">We typically respond within 24-48 business hours.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+          <p class="text-sm text-slate-500 dark:text-slate-500 italic">
+            Note: We do not provide personalized financial advice. Our tools are for educational purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

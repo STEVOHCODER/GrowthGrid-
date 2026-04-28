@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Terms of Service | GrowthGrid" description="Read our terms of service and usage guidelines.">
+  <Header />
+  <main class="py-20 bg-white dark:bg-slate-950 transition-colors">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h1 class="text-4xl font-black text-slate-900 dark:text-white mb-8 uppercase tracking-tight">Terms of Service</h1>
+      
+      <div class="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p class="mb-6 italic">Last Updated: April 28, 2026</p>
+
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-4">1. Acceptance of Terms</h2>
+        <p class="mb-6">
+          By accessing and using <strong>GrowthGrid</strong>, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our site.
+        </p>
+
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-4">2. Use of Calculators</h2>
+        <p class="mb-6">
+          Our financial tools and calculators are provided for <strong>informational and educational purposes only</strong>. They do not constitute professional financial advice. Always consult with a certified financial advisor before making significant financial decisions.
+        </p>
+
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-4">3. Accuracy of Data</h2>
+        <p class="mb-6">
+          While we strive for high precision, we do not guarantee the accuracy, completeness, or reliability of any results produced by our tools. 
+        </p>
+
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-4">4. Intellectual Property</h2>
+        <p class="mb-6">
+          All content, including tools, text, and design, is the property of GrowthGrid. You may not reproduce, distribute, or create derivative works without explicit permission.
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

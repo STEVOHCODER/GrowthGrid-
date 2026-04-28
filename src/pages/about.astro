@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="About Us | GrowthGrid" description="Learn about the mission behind GrowthGrid and our commitment to financial clarity.">
+  <Header />
+  <main class="py-20 bg-white dark:bg-slate-950 transition-colors">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 uppercase tracking-tight">Our Mission</h1>
+      
+      <div class="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p class="mb-6">
+          Welcome to <strong>GrowthGrid</strong>. Our mission is to democratize high-precision financial planning. In an era of economic volatility, we believe that everyone deserves access to the tools and data necessary to build a secure financial future.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-4">Why We Built This</h2>
+        <p class="mb-6">
+          Most financial tools are either locked behind expensive paywalls or designed to be confusing. GrowthGrid was built to provide clean, fast, and interactive calculators that give you immediate answers to your most important questions: <em>"How much will my mortgage cost?"</em> and <em>"How much wealth can I actually build?"</em>
+        </p>
+
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-4">Data-Driven Clarity</h2>
+        <p class="mb-6">
+          Our tools use industry-standard financial formulas to ensure accuracy. Combined with our expert wealth guides, we aim to be your first stop for financial clarity in 2026 and beyond.
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
