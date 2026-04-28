@@ -1,0 +1,33 @@
+<%- include("partials/head", { title: "Admin | BookWise Studio", description: "Manage and publish E-E-A-T playbook articles." }) %>
+<main class="container">
+  <section class="page">
+    <h1>Publish New Playbook Article</h1>
+    <p class="lead">Write for discoverability: specific problem, practical execution, and one credible source quote.</p>
+    <form class="admin-form" method="post" action="/admin/books">
+      <input type="hidden" name="key" value="<%= key %>" />
+      <label>Article Title (How to Apply ... to ...)<input type="text" name="title" required /></label>
+      <label>Book Source<input type="text" name="bookTitle" required /></label>
+      <label>Author<input type="text" name="author" required /></label>
+      <label>Category<input type="text" name="category" required /></label>
+      <label>Publish Date<input type="date" name="publishedOn" /></label>
+      <label>Problem Hook<textarea name="problemHook" rows="3" required></textarea></label>
+      <label>Introduction (~100 words)<textarea name="intro" rows="4" required></textarea></label>
+      <label>The Core Concept (~200 words)<textarea name="coreConcept" rows="6" required></textarea></label>
+      <label>Author Quote (single quote)<textarea name="authorQuote" rows="2" required></textarea></label>
+      <label>The 2026 Application (~600 words)<textarea name="application2026" rows="10" required></textarea></label>
+      <label>Case Study (~300 words)<textarea name="caseStudy" rows="8" required></textarea></label>
+      <label>Conclusion<textarea name="conclusion" rows="3" required></textarea></label>
+      <button type="submit">Publish Playbook</button>
+    </form>
+  </section>
+
+  <section class="page">
+    <h2>Published Playbooks</h2>
+    <div class="admin-list">
+      <% books.forEach((book) => { %>
+        <p><a href="/book/<%= book.slug %>"><%= book.title %></a> (<%= book.category %>)</p>
+      <% }) %>
+    </div>
+  </section>
+</main>
+<%- include("partials/foot") %>

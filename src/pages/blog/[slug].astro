@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import AdSlot from '../../components/AdSlot.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <Header />
+  <article class="py-20 bg-white dark:bg-slate-950 transition-colors">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <header class="mb-12 text-center">
+        <p class="text-indigo-600 dark:text-indigo-400 font-bold mb-4 uppercase tracking-widest text-sm">Personal Finance</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+          {post.data.title}
+        </h1>
+        <div class="text-slate-500 dark:text-slate-400 font-medium">
+          Published on {post.data.pubDate.toLocaleDateString()}
+        </div>
+      </header>
+
+      <AdSlot slotId="444555666" />
+
+      <div class="prose prose-lg prose-slate dark:prose-invert max-w-none">
+        <Content />
+      </div>
+
+      <AdSlot slotId="777888999" />
+    </div>
+  </article>
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  .prose h2 { @apply text-3xl mt-12 mb-6 text-slate-900 dark:text-white font-bold; }
+  .prose p { @apply text-slate-600 dark:text-slate-400 mb-6 leading-relaxed; }
+  .prose ul { @apply list-disc list-outside ml-6 mb-6 space-y-2 text-slate-600 dark:text-slate-400; }
+  .prose a { @apply text-indigo-600 dark:text-indigo-400 underline; }
+</style>

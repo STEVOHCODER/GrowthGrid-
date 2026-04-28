@@ -1,0 +1,15 @@
+---
+const { slotId } = Astro.props;
+---
+<div class="my-8 flex justify-center bg-slate-100 py-4 border border-dashed border-slate-300 min-h-[100px] relative overflow-hidden">
+  <span class="absolute top-1 left-2 text-[10px] uppercase text-slate-400 font-bold">Advertisement</span>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot={slotId}
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script is:inline>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>

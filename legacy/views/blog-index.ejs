@@ -1,0 +1,18 @@
+<%- include("partials/head", { title: "PDF Guides | Smart PDF Tools", description: "Actionable guides for PDF workflows, quality, and automation." }) %>
+<main class="container">
+  <section class="page reveal">
+    <h1>Guides</h1>
+    <p>Practical tutorials designed for search visibility and real user outcomes.</p>
+    <div class="grid">
+      <% blogPosts.forEach((post) => { %>
+        <article class="card">
+          <p class="meta"><%= post.date %></p>
+          <h3><a href="/blog/<%= post.slug %>"><%= post.title %></a></h3>
+          <p><%= post.excerpt %></p>
+          <a class="read-more" href="/blog/<%= post.slug %>">Read guide</a>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+</main>
+<%- include("partials/foot") %>

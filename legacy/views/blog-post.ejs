@@ -1,0 +1,24 @@
+<%- include("partials/head", { title: `${post.title} | Smart PDF Tools`, description: post.excerpt }) %>
+<main class="container">
+  <article class="article reveal">
+    <header class="article-hero">
+      <p class="meta"><%= post.date %></p>
+      <h1><%= post.title %></h1>
+      <p class="lead"><%= post.excerpt %></p>
+    </header>
+    <section class="content-section">
+      <% post.content.forEach((line) => { %>
+        <p><%= line %></p>
+      <% }) %>
+    </section>
+  </article>
+  <section class="ad-slot reveal">
+    <% if (adsenseClient) { %>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="<%= adsenseClient %>" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <% } else { %>
+      <p class="ad-placeholder">Ad space</p>
+    <% } %>
+  </section>
+</main>
+<%- include("partials/foot") %>

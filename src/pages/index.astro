@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MortgageCalculator from '../components/MortgageCalculator.jsx';
+import CompoundInterestCalculator from '../components/CompoundInterestCalculator.jsx';
+import AdSlot from '../components/AdSlot.astro';
+
+const blogPosts = (await getCollection('blog')).slice(0, 3);
+---
+
+<BaseLayout title="Professional Financial Tools & Wealth Guides">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 py-20 transition-colors">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
+          Build Wealth with <span class="text-indigo-600 dark:text-indigo-400">Precision.</span>
+        </h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10">
+          Access high-performance financial calculators and expert-reviewed wealth building strategies.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#tools" class="bg-slate-900 dark:bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 dark:hover:bg-indigo-700 transition shadow-lg">Try Tools</a>
+          <a href="/blog" class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition">Read Guides</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container mx-auto px-4">
+      <AdSlot slotId="1234567890" />
+    </div>
+
+    <!-- Tools Grid -->
+    <section id="tools" class="py-20 bg-slate-50 dark:bg-slate-950 scroll-mt-20 transition-colors">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <MortgageCalculator client:load />
+          <CompoundInterestCalculator client:load />
+        </div>
+      </div>
+    </section>
+
+    <div class="container mx-auto px-4">
+      <AdSlot slotId="0987654321" />
+    </div>
+
+    <!-- Content Teaser -->
+    <section class="py-20 bg-white dark:bg-slate-900 transition-colors">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Latest Wealth Strategies</h2>
+          <p class="text-slate-600 dark:text-slate-400">Data-driven insights to help you grow your portfolio.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="group cursor-pointer">
+              <div class="aspect-video bg-slate-100 dark:bg-slate-800 rounded-2xl mb-4 overflow-hidden">
+                 <div class="w-full h-full bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center group-hover:scale-105 transition duration-500">
+                    <span class="text-indigo-200 dark:text-indigo-800 font-bold text-2xl px-4 text-center">{post.data.title}</span>
+                 </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">{post.data.title}</h3>
+              <p class="text-slate-500 dark:text-slate-400 text-sm">{post.data.description.substring(0, 120)}...</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

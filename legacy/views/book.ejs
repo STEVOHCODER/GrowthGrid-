@@ -1,0 +1,77 @@
+<%- include("partials/head", { title: `${book.title} | BookWise Studio`, description: book.problemHook }) %>
+<main class="container">
+  <script type="application/ld+json">
+    <%- JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: book.title,
+      description: book.problemHook,
+      author: { "@type": "Person", name: book.author },
+      datePublished: book.date,
+      mainEntityOfPage: `${siteUrl}/book/${book.slug}`
+    }) %>
+  </script>
+  <article class="article article-rich">
+    <header class="article-hero">
+      <p class="meta"><%= book.date %> | <%= book.category %></p>
+      <h1><%= book.title %></h1>
+      <p class="author">From <%= book.bookTitle %> by <%= book.author %></p>
+      <p class="lead"><%= book.problemHook %></p>
+      <div class="section-jump">
+        <a href="#intro">Introduction</a>
+        <a href="#concept">Core Concept</a>
+        <a href="#apply">2026 Application</a>
+        <a href="#case">Case Study</a>
+        <a href="#conclusion">Conclusion</a>
+      </div>
+    </header>
+
+    <section class="content-section" id="intro">
+      <h2>Introduction</h2>
+      <% book.intro.forEach((item) => { %>
+        <p><%= item %></p>
+      <% }) %>
+    </section>
+
+    <section class="content-section" id="concept">
+      <h2>The Core Concept</h2>
+      <% book.coreConcept.forEach((item) => { %>
+        <p><%= item %></p>
+      <% }) %>
+      <blockquote class="quote"><%= book.authorQuote %></blockquote>
+    </section>
+
+    <section class="content-section" id="apply">
+      <h2>The 2026 Application</h2>
+      <ul>
+        <% book.application2026.forEach((item) => { %>
+          <li><%= item %></li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <section class="content-section" id="case">
+      <h2>Case Study</h2>
+      <% book.caseStudy.forEach((item) => { %>
+        <p><%= item %></p>
+      <% }) %>
+    </section>
+
+    <section class="content-section" id="conclusion">
+      <h2>Conclusion</h2>
+      <% book.conclusion.forEach((item) => { %>
+        <p><%= item %></p>
+      <% }) %>
+    </section>
+  </article>
+
+  <section class="ad-slot">
+    <% if (adsenseClient) { %>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="<%= adsenseClient %>" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <% } else { %>
+      <p class="ad-placeholder">Ad space</p>
+    <% } %>
+  </section>
+</main>
+<%- include("partials/foot") %>

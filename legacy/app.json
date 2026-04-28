@@ -1,0 +1,16 @@
+{
+  "name": "Practical Growth Hub",
+  "description": "Heroku deployable website scaffold with AdSense-ready pages",
+  "repository": "https://example.com/replace-with-your-repo.git",
+  "keywords": ["node", "express", "adsense", "seo", "heroku"],
+  "env": {
+    "SITE_URL": {
+      "description": "Public base URL used for sitemap generation",
+      "required": true
+    },
+    "ADSENSE_CLIENT": {
+      "description": "Google AdSense publisher id, e.g. ca-pub-xxxxxxxxxxxxxxxx",
+      "required": false
+    }
+  }
+}

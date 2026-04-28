@@ -1,0 +1,143 @@
+<%- include("partials/head", { title: "Smart PDF Tools | Fast, Modern, Reliable", description: "Merge, split, convert, and extract PDF data with modern tools and practical guides." }) %>
+<main class="container">
+  <section class="hero reveal">
+    <h1>Smart PDF Tools For Fast Workflows</h1>
+    <p>Convert document chaos into clean output with practical tools and implementation guides.</p>
+    <div class="hero-stats">
+      <span><strong>10,000+</strong> users</span>
+      <span><strong><%= blogPosts.length %></strong> SEO guides</span>
+      <span><strong><%= featureCards.length %></strong> core tools</span>
+    </div>
+    <section class="search-panel">
+      <p class="search-label">Find a tool or guide</p>
+      <form class="searchbar" method="get" action="/">
+        <input type="text" name="q" value="<%= query || '' %>" placeholder="Search by problem, concept, author, or book..." />
+        <button type="submit">Try Now</button>
+      </form>
+      <p class="search-hint">Examples: "merge pdf", "extract tables", "automation workflow"</p>
+    </section>
+  </section>
+
+  <% if (adsenseClient) { %>
+    <section class="ad-slot reveal">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="<%= adsenseClient %>" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </section>
+  <% } %>
+
+  <% if (books.length) { %>
+    <section class="slideshow reveal">
+      <div class="slides" id="slides">
+        <% books.slice(0, 5).forEach((book, i) => { %>
+          <article class="slide <%= i === 0 ? 'active' : '' %>" data-slide="<%= i %>">
+            <p class="meta"><%= book.category %> • <%= book.date %></p>
+            <h2><%= book.title %></h2>
+            <p><%= book.problemHook %></p>
+            <a class="slide-link" href="/book/<%= book.slug %>">Read this playbook</a>
+          </article>
+        <% }) %>
+      </div>
+      <div class="slide-dots" id="slideDots">
+        <% books.slice(0, 5).forEach((book, i) => { %>
+          <button class="dot <%= i === 0 ? 'active' : '' %>" data-go="<%= i %>" aria-label="Go to slide <%= i + 1 %>"></button>
+        <% }) %>
+      </div>
+    </section>
+  <% } %>
+
+  <section class="section-block reveal">
+    <div class="section-head">
+      <h2>Features</h2>
+      <p>Designed for speed, clarity, and repeatable document workflows.</p>
+    </div>
+    <div class="grid">
+      <% featureCards.forEach((f) => { %>
+        <article class="card feature-card">
+          <h3><%= f.title %></h3>
+          <p><%= f.desc %></p>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="section-block demo reveal">
+    <div class="section-head">
+      <h2>Interactive Demo</h2>
+      <p>Estimate how much weekly time you can save by automating PDF tasks.</p>
+    </div>
+    <div class="demo-box">
+      <label>How many PDF tasks do you process per week?
+        <input id="tasksInput" type="range" min="10" max="500" value="120" />
+      </label>
+      <p class="demo-read">Tasks: <span id="tasksValue">120</span></p>
+      <p class="demo-read">Estimated hours saved: <span id="hoursSaved">8.0</span> hrs/week</p>
+    </div>
+  </section>
+
+  <% if (adsenseClient) { %>
+    <section class="ad-slot reveal">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="<%= adsenseClient %>" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </section>
+  <% } %>
+
+  <section class="section-block reveal">
+    <div class="section-head">
+      <h2>Why Choose Us</h2>
+      <p>Built for professionals who need quality output without process friction.</p>
+    </div>
+    <div class="why-grid">
+      <article class="card"><h3>Fast Processing</h3><p>Complete document tasks in seconds, not hours.</p></article>
+      <article class="card"><h3>Practical Guides</h3><p>Every guide shows concrete steps you can apply today.</p></article>
+      <article class="card"><h3>Clean UX</h3><p>Simple flows that your team can adopt without training.</p></article>
+    </div>
+  </section>
+
+  <section class="section-block reveal">
+    <div class="section-head">
+      <h2>Blog / Guides</h2>
+      <p>SEO-focused tutorials that support discovery and AdSense readiness.</p>
+    </div>
+    <div class="grid">
+      <% blogPosts.forEach((post) => { %>
+        <article class="card">
+          <p class="meta"><%= post.date %></p>
+          <h3><a href="/blog/<%= post.slug %>"><%= post.title %></a></h3>
+          <p><%= post.excerpt %></p>
+          <a class="read-more" href="/blog/<%= post.slug %>">Read guide</a>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="section-block reveal">
+    <div class="section-head">
+      <h2>Trusted By Teams</h2>
+      <p>Used by operators, founders, and freelancers managing high document volume.</p>
+    </div>
+    <div class="grid">
+      <% testimonials.forEach((t) => { %>
+        <article class="card">
+          <p>"<%= t.quote %>"</p>
+          <p class="author"><%= t.name %> — <%= t.role %></p>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="section-block reveal">
+    <div class="section-head">
+      <h2>FAQ</h2>
+      <p>Clear answers to common questions before you start.</p>
+    </div>
+    <div class="faq-list">
+      <% faqs.forEach((f, i) => { %>
+        <details class="faq-item" <%= i === 0 ? "open" : "" %>>
+          <summary><%= f.q %></summary>
+          <p><%= f.a %></p>
+        </details>
+      <% }) %>
+    </div>
+  </section>
+</main>
+<%- include("partials/foot") %>
